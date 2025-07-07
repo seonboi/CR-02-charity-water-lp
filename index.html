@@ -3,45 +3,358 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>charity: water | Track Every Drop</title>
+    <!-- Google Fonts: Poppins for body/UI and Gochi Hand for the script headline -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <style>
+        /* ------------------- */
+        /* --- Global Styles & Variables --- */
+        /* ------------------- */
+        :root {
+            --brand-dark-blue: #042342; /* Placeholder - waiting for your color codes */
+            --brand-yellow: #ffde59;    /* Placeholder - waiting for your color codes */
+            --brand-white: #FFFFFF;
+            --text-light: #FFFFFF;
+            --text-gray: #cbccd1;
+            --font-family-sans: 'Poppins', sans-serif;
+            --font-family-script: 'Permanent Marker', cursive;
+        }
+
+        /* --- Reset --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family-sans);
+            color: var(--text-light);
+            background-color: var(--brand-dark-blue);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 8px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* ------------------- */
+        /* --- Header & Navigation --- */
+        /* ------------------- */
+       .main-header {
+    background-color: white;
+    padding: 1rem 0; /* A little less padding on the header bar itself */
+}
+/* ADD THIS NEW RULE for the container inside the header */
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo-img {
+    height: 35px; /* You can change this number to make it bigger or smaller */
+}
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: black;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+       .logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none; /* Removes the underline from the link */
+}
+ .logo-text {
+    color: black;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-left: 0.5rem; /* Adds a little space between the icon and the text */
+}
+        .logo-icon {
+            width: 12px;
+            height: 12px;
+            background-color: var(--brand-yellow);
+            margin-right: 0.5rem;
+            clip-path: polygon(0 25%, 25% 25%, 25% 0, 75% 0, 75% 25%, 100% 25%, 100% 75%, 75% 75%, 75% 100%, 25% 100%, 25% 75%, 0 75%);
+        }
+
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color:black;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .main-nav a:hover {
+            color: var(--brand-yellow);
+        }
+
+        .btn-nav {
+            background-color: var(--brand-yellow);
+            color: var(--brand-dark-blue);
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            font-weight: 900;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .btn-nav:hover {
+            color: var(--brand-dark-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* ------------------- */
+        /* --- Hero Section --- */
+        /* ------------------- */
+        .hero {
+            padding: 2rem 0 4rem;
+            min-height: 85vh;      /* <-- ADD THIS LINE */
+    display: flex;         /* <-- AND ADD THIS LINE */
+    align-items: center;   /* <-- AND THIS ONE TOO */
+        }
+        
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 0;
+        }
+        
+        .hero-content-wrapper {
+            padding-right: 2rem;
+            z-index: 10;
+        }
+
+        .hero-stats {
+            text-align: right;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: var(--text-gray);
+        }
+        
+        .hero-content h1 {
+            font-family: var(--font-family-script);
+            font-size: 5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+        
+        .hero-content p {
+            font-size: 1.1rem;
+            max-width: 450px;
+            margin-bottom: 2.5rem;
+        }
+        
+        .email-form {
+            display: flex;
+            background-color: var(--brand-white);
+            border-radius: 5px;
+            max-width: 450px;
+            padding: 5px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .email-form input {
+            flex-grow: 1;
+            border: none;
+            padding: 0.8rem 1rem;
+            font-size: 1rem;
+            background: transparent;
+            color: #333;
+            font-family: var(--font-family-sans);
+        }
+        
+        .email-form input:focus { outline: none; }
+        
+        .email-form button {
+            background-color: var(--brand-dark-blue);
+            color: var(--brand-white);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-family: var(--font-family-sans);
+        }
+        
+        .email-form button:hover { background-color: #2c5282; }
+
+        /* --- Image Collage with Slant --- */
+        .image-collage-container {
+            clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+            grid-column: 2 / 3;
+            grid-row: 1 / 2;
+        }
+        
+        .image-collage {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            gap: 1rem;
+            height: 550px;
+        }
+        
+        .image-collage img {
+             transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .image-collage img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+            z-index: 5;
+            position: relative;
+        }
+
+        .collage-img-1 { grid-column: 2 / 3; grid-row: 1 / 4; }
+        .collage-img-2 { grid-column: 1 / 2; grid-row: 3 / 6; }
+        .collage-img-3 { grid-column: 1 / 2;
+    grid-row: 1 / 3;
+    width: 100%; /* Make sure it fills the container's width */
+    height: 100%; /* Make sure it fills the container's height */
+    object-fit: cover; /* This makes it cover the area without stretching */
+    object-position: 70% 50%; /* This shifts the image 70% to the right */}
+        .collage-img-4 { grid-column: 2 / 3; grid-row: 4 / 6; }
+        .collage-img-main { grid-column: 1 / 3; grid-row: 2 / 5; z-index: 2; }
+
+
+        /* ------------------- */
+        /* --- Responsive Design --- */
+        /* ------------------- */
+        @media (max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .hero-content-wrapper {
+                order: 1;
+                padding-right: 0;
+            }
+            .hero-content { text-align: center; }
+            .hero-stats { text-align: center; }
+            .hero-content p, .email-form { margin-left: auto; margin-right: auto; }
+            
+            .image-collage-container {
+                order: 0;
+                clip-path: none; 
+            }
+            .image-collage {
+                height: auto;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto;
+            }
+            .collage-img-1, .collage-img-2, .collage-img-3, .collage-img-4, .collage-img-main {
+                grid-column: auto;
+                grid-row: auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .main-nav { display: none; }
+            .main-header { justify-content: center; }
+            .hero-content h1 { font-size: 3.5rem; }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-content h1 { font-size: 2.8rem; }
+            .hero-content p { font-size: 1rem; }
+            
+            .email-form {
+                flex-direction: column;
+                gap: 0.5rem;
+                background: transparent;
+                box-shadow: none;
+            }
+            .email-form input {
+                background-color: var(--brand-white);
+                border-radius: 5px;
+            }
+        }
+
+    </style>
 </head>
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
+<header class="main-header">
+    <div class="container">  <!--  <-- ADD THIS OPENING DIV -->
+        <a href="#" class="logo-link">
+    <img src="img/ddd0c9a2e8917f87265052410df69394 (1) (1).png" alt="charity: water icon" class="logo-img">
+    <span class="logo-text">charity: water</span>
+</a>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#" class="btn-nav">Take Action</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Why Water?</a></li>
+                <li><a href="#">Menu</a></li>
+            </ul>
+        </nav>
+    </div> <!-- <-- ADD THIS CLOSING DIV -->
+</header>
+    <div class="container">
+        
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
+        <main>
+            <section class="hero">
+                <div class="hero-grid">
+                    <div class="hero-content-wrapper">
+                        <div class="hero-stats">
+                            1,129 wells funded<br>
+                            4.3 million reached<br>
+                            38 countries served
+                        </div>
+                        <div class="hero-content">
+                            <h1>Track Every Drop of Change</h1>
+                            <p>You're not just funding water, you're funding progress. Charity Water lets you see exactly where your donation goes and how it transforms lives.</p>
+                            <form class="email-form" onsubmit="event.preventDefault(); alert('Thank you for joining!');">
+                                <input type="email" placeholder="Your email address" required>
+                                <button type="submit">Join the Cause!</button>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <div class="image-collage-container">
+                        <div class="image-collage">
+                            <!-- IMAGES REVERTED TO PLACEHOLDERS -->
+                            <img src="img/Zimbabwe_2022_CG-7493 (1).jpg" alt="A teacher and student in a classroom" class="collage-img-1">
+                            <img src="img/JS_20130612_6002-Edit_preview (1).jpg" alt="Children smiling and playing" class="collage-img-2">
+                            <img src="img/eyJidWNrZXQiOiJkcm9wbWFyayIsImtleSI6IjUyMDQzLzgxZDVjYjRiYTc2NjQwN2MxODJjM2YwMmJiN2M0MzU5OTI1OTA0MzFiZWU0NjI4YzVkYTJmYzk1YTIyOGY5OTQvcHJldmlldy9KU18yMDE3MDMwMl8yLTg3LmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6NjAwL.jpg" class="collage-img-3">
+                            <img src="img/eyJidWNrZXQiOiJkcm9wbWFyayIsImtleSI6IjUyMDQzL2U1ZWZjMzcxMGQyZDFjMDk1YzIwM2JlYzlmN2M0YmEzYWUyZTZjMWVhMzU3M2U4Yjk2MzdjYTU1YTQ4NzA1Y2YvcHJldmlldy9NYWxhd2lfMjAyM19DRy0wNjM0LmpwZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6N.jpg" class="collage-img-4">
+                            <img src="img/eyJidWNrZXQiOiJkcm9wbWFyayIsImtleSI6IjUyMDQzL2MwZDgxZjNmZmQ0ZDM2OTUwNmRmZGFhYjMzMDQ5ZTFiOTBjN2JkYzQyM2FmNTRlYzM5NDAyYjFiMmMyYjkzYWEvcHJldmlldy9NYWRhZ2FzY2FyXzIwMTlfQ0ctMDUxOS5qcGciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkd.jpg" class="collage-img-main">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
 
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
-        </div>
-    </section>
-
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
-    </section>
 </body>
 </html>
